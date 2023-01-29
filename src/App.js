@@ -23,6 +23,7 @@ function App() {
     );
     const movies = await res.json();
     //to destructure non array object
+    // eslint-disable-next-line
     const { title, backdrop_path } = movies;
     console.log(movies);
     setFeatured(movies);
