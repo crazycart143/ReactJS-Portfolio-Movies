@@ -13,6 +13,7 @@ function Dashboard({popular, setFiltered, activeGenre, setActiveGenre}) {
       movie.genre_ids.includes(activeGenre),
     );
     setFiltered(filtered);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [activeGenre]);
 
   return (
