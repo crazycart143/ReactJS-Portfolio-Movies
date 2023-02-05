@@ -56,27 +56,29 @@ function App() {
     setIsLoading(true);
     setTimeout(async () => {
       const { data: res } = await ApiAddress.get(
-        `movie/top_rated?api_key=bb4cc190ec5e729a31f555a69ba8bac1&language=en-US&page=1`
+        `movie/top_rated?api_key=bb4cc190ec5e729a31f555a69ba8bac1&language=en-US&page=` +
+          page
       );
       // eslint-disable-next-line
       setTopRated(res.results);
       //slice is used to limit movie items
       setIsLoading(false);
     }, 2000);
-  }, []);
+  }, [page]);
 
   useEffect(() => {
     setIsLoading(true);
     setTimeout(async () => {
       const { data: res } = await ApiAddress.get(
-        `movie/upcoming?api_key=bb4cc190ec5e729a31f555a69ba8bac1&language=en-US&page=1&region=US`
+        `movie/upcoming?api_key=bb4cc190ec5e729a31f555a69ba8bac1&language=en-US&page=` +
+          page`&region=US`
       );
       // eslint-disable-next-line
       setUpcoming(res.results);
       //slice is used to limit movie items
       setIsLoading(false);
     }, 2000);
-  }, []);
+  }, [page]);
 
   useEffect(() => {
     setIsLoading(true);
