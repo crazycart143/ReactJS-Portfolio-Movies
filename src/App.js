@@ -23,6 +23,12 @@ function App() {
   const [isLoading, setIsLoading] = useState(true);
   const [page, setPage] = useState(1);
 
+  const [darkMode, setDarkMode] = useState(false);
+
+  function toggleDarkMode() {
+    setDarkMode((prevDarkMode) => !prevDarkMode);
+  }
+
   const ApiAddress = axios.create({
     baseURL: "https://api.themoviedb.org/3/",
   });
@@ -123,6 +129,8 @@ function App() {
             searchMovies={searchMovies}
             searchTerm={searchTerm}
             setSearchTerm={setSearchTerm}
+            darkMode={darkMode}
+            toggleDarkMode={toggleDarkMode}
           />
         </header>
         <main className="grid w-full h-full grid-cols-nav1">
@@ -135,6 +143,7 @@ function App() {
               setIsLoading={setIsLoading}
               topRated={topRated}
               upcoming={upcoming}
+              darkMode={darkMode}
             />
           </div>
           <div className="w-[80%] flex flex-col justify-start items-start h-full mt-10 bg-white absolute right-0 top-0">

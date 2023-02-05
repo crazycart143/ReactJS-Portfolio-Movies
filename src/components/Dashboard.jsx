@@ -10,6 +10,7 @@ function Dashboard({
   setActiveGenre,
   setIsLoading,
   setFiltered,
+  darkMode,
 }) {
   useEffect(() => {
     setIsLoading(true);
@@ -31,9 +32,17 @@ function Dashboard({
 
   return (
     <>
-      <div className="w-[20%] h-[100%] overflow-y-scroll fixed top-0 scrollbar-thin scrollbar-thumb-gray-400 scrollbar-track-gray-200 ">
-        <div className="w-full text-center border-b-2 border-gray-300 ">
-          <h1 className="p-7 font-bold text-center text-[2.5vw] text-blue-500 pl-3">
+      <div
+        className={`w-[20%] h-[100%] overflow-y-scroll fixed top-0 scrollbar-thin scrollbar-thumb-gray-400 scrollbar-track-gray-200 ${
+          darkMode ? "bg-[#272727]" : "bg-white"
+        }`}
+      >
+        <div
+          className={`w-full text-center border-b-2 border-gray-300 ${
+            darkMode ? "text-red-500 bg-[#272727]" : "text-blue-500 bg-white"
+          }`}
+        >
+          <h1 className="p-7 font-bold text-center text-[2.5vw] pl-3">
             FILMPIRE
           </h1>
         </div>

@@ -3,8 +3,16 @@ import SearchIcon from "@mui/icons-material/Search";
 import { Button, Input } from "@mui/material";
 import { ThemeProvider } from "@mui/material";
 import { createTheme } from "@mui/material/styles";
+import IconButton from "@mui/material/IconButton";
+import { useState } from "react";
 
-function Header({ searchMovies, searchTerm, setSearchTerm }) {
+function Header({
+  searchMovies,
+  searchTerm,
+  setSearchTerm,
+  darkMode,
+  toggleDarkMode,
+}) {
   //to search using enter key
   const handleKeyDown = (event) => {
     if (event.key === "Enter") {
@@ -13,8 +21,21 @@ function Header({ searchMovies, searchTerm, setSearchTerm }) {
   };
 
   return (
-    <header className="w-[80%] fixed ml-[20%] left-0 top-0 z-50">
-      <div className="bg-blue-500 w-[79vw] h-[80px] flex items-center sticky left-0 top-0">
+    <header
+      darkMode={darkMode}
+      toggleDarkMode={toggleDarkMode}
+      className="w-[80%] fixed ml-[20%] left-0 top-0 z-50"
+    >
+      <div
+        className={`w-[79vw] h-[80px] flex items-center sticky left-0 top-0 ${
+          darkMode ? "bg-[#272727] text-white" : "bg-blue-500 text-black"
+        }`}
+      >
+        <div className="flex justify-start w-[1%]">
+          <IconButton sx={{ ml: 1 }} onClick={toggleDarkMode} color="inherit">
+            {darkMode ? <h1>dark</h1> : <h1>light</h1>}
+          </IconButton>
+        </div>
         <div className="absolute left-[34%] mb-2 mt-2">
           <SearchIcon className="text-white" />
         </div>
