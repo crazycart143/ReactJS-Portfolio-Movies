@@ -23,15 +23,15 @@ function App() {
   const [isLoading, setIsLoading] = useState(true);
   const [page, setPage] = useState(1);
 
-  const handleChange = (event, value) => {
-    setPage(value);
-  };
+  const ApiAddress = axios.create({
+    baseURL: "https://api.themoviedb.org/3/",
+  });
 
   const searchMovies = async (title) => {
     setIsLoading(true);
     setTimeout(async () => {
-      const { data: res } = await axios.get(
-        `https://api.themoviedb.org/3/search/movie?api_key=bb4cc190ec5e729a31f555a69ba8bac1&language=en-US&query=${title}&page=1&include_adult=false`
+      const { data: res } = await ApiAddress.get(
+        `search/movie?api_key=bb4cc190ec5e729a31f555a69ba8bac1&language=en-US&query=${title}&page=1&include_adult=false`
       );
       setPopular(res.results);
       setFiltered(res.results);
@@ -42,8 +42,8 @@ function App() {
   useEffect(() => {
     setIsLoading(true);
     setTimeout(async () => {
-      const { data: res } = await axios.get(
-        "https://api.themoviedb.org/3/movie/now_playing?api_key=bb4cc190ec5e729a31f555a69ba8bac1&language=en-US&page=1"
+      const { data: res } = await ApiAddress.get(
+        `movie/now_playing?api_key=bb4cc190ec5e729a31f555a69ba8bac1&language=en-US&page=1`
       );
       // eslint-disable-next-line
       setFeatured(res.results.slice(0, 10));
@@ -55,8 +55,8 @@ function App() {
   useEffect(() => {
     setIsLoading(true);
     setTimeout(async () => {
-      const { data: res } = await axios.get(
-        "https://api.themoviedb.org/3/movie/top_rated?api_key=bb4cc190ec5e729a31f555a69ba8bac1&language=en-US&page=1"
+      const { data: res } = await ApiAddress.get(
+        `movie/top_rated?api_key=bb4cc190ec5e729a31f555a69ba8bac1&language=en-US&page=1`
       );
       // eslint-disable-next-line
       setTopRated(res.results);
@@ -68,8 +68,8 @@ function App() {
   useEffect(() => {
     setIsLoading(true);
     setTimeout(async () => {
-      const { data: res } = await axios.get(
-        "https://api.themoviedb.org/3/movie/upcoming?api_key=bb4cc190ec5e729a31f555a69ba8bac1&language=en-US&page=1&region=US"
+      const { data: res } = await ApiAddress.get(
+        `movie/upcoming?api_key=bb4cc190ec5e729a31f555a69ba8bac1&language=en-US&page=1&region=US`
       );
       // eslint-disable-next-line
       setUpcoming(res.results);
@@ -78,17 +78,17 @@ function App() {
     }, 2000);
   }, []);
 
-  useEffect((page) => {
+  useEffect(() => {
     setIsLoading(true);
     setTimeout(async () => {
-      const { data: res } = await axios.get(
-        "https://api.themoviedb.org/3/discover/movie?api_key=bb4cc190ec5e729a31f555a69ba8bac1"
+      const { data: res } = await ApiAddress.get(
+        `discover/movie?api_key=bb4cc190ec5e729a31f555a69ba8bac1&page=` + page
       );
       setPopular(res.results);
       setFiltered(res.results);
       setIsLoading(false);
     }, 2000);
-  }, []);
+  }, [page]);
 
   // const fetchUpcoming = async () => {
   //   const data = await fetch(
@@ -166,9 +166,7 @@ function App() {
                 className="flex text-black w-full justify-center pt-[5%] pb-[5%]"
                 count={10}
                 shape="rounded"
-                onClick={(e) => console.log(setPage(e.target.innerText))}
-                onChange={handleChange}
-                page={page}
+                onChange={(e, value) => setPage(value)}
               />
             </>
             {/* <div className="mt-[5%] flex w-full h-full text-center justify-center items-center relative">
