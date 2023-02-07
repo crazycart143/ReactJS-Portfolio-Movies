@@ -9,24 +9,24 @@ function Dashboard({
   activeGenre,
   setActiveGenre,
   setIsLoading,
-  setFiltered,
   darkMode,
+  setCategory,
 }) {
   useEffect(() => {
     setIsLoading(true);
-    setTimeout(async () => {
-      if (activeGenre === 0) {
-        setFiltered(popular); //Checks- don't do anything, just return all
-        setIsLoading(false);
-        return;
-      }
 
-      const filtered = popular.filter((movie) =>
-        movie.genre_ids.includes(activeGenre)
-      );
-      setFiltered(filtered);
+    if (activeGenre === 0) {
+      setCategory(popular); //Checks- don't do anything, just return all
       setIsLoading(false);
-    }, 2000);
+      return;
+    }
+
+    // const filtered = genre.filter((movie) =>
+    //   movie.genre_ids.includes(activeGenre)
+    // );
+    // console.log(filtered);
+    setIsLoading(false);
+
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [activeGenre]);
 
@@ -53,7 +53,7 @@ function Dashboard({
               onClick={() => {
                 setIsLoading(true);
                 setTimeout(() => {
-                  setFiltered(popular);
+                  setCategory(popular);
                   setIsLoading(false);
                 }, 2000);
               }}
@@ -76,7 +76,7 @@ function Dashboard({
               onClick={() => {
                 setIsLoading(true);
                 setTimeout(() => {
-                  setFiltered(topRated);
+                  setCategory(topRated);
                   setIsLoading(false);
                 }, 2000);
               }}
@@ -103,7 +103,7 @@ function Dashboard({
               onClick={() => {
                 setIsLoading(true);
                 setTimeout(() => {
-                  setFiltered(upcoming);
+                  setCategory(upcoming);
                   setIsLoading(false);
                 }, 2000);
               }}

@@ -16,7 +16,9 @@ function App() {
   const [upcoming, setUpcoming] = useState([]);
   //to filter movies with genre
   const [filtered, setFiltered] = useState([]);
-  const [activeGenre, setActiveGenre] = useState([]);
+  const [activeGenre, setActiveGenre] = useState();
+  const [genre, setGenre] = useState([]);
+  const [category, setCategory] = useState([]);
   const [searchTerm, setSearchTerm] = useState("");
   const [featured, setFeatured] = useState([]);
   // const [upcoming, setUpcoming] = useState([]);
@@ -39,8 +41,7 @@ function App() {
       const { data: res } = await ApiAddress.get(
         `search/movie?api_key=bb4cc190ec5e729a31f555a69ba8bac1&language=en-US&query=${title}&page=1&include_adult=false`
       );
-      setPopular(res.results);
-      setFiltered(res.results);
+      setCategory(res.results);
       setIsLoading(false);
     }, 2000);
   };
@@ -62,11 +63,25 @@ function App() {
     setIsLoading(true);
     setTimeout(async () => {
       const { data: res } = await ApiAddress.get(
+        `movie/popular?api_key=bb4cc190ec5e729a31f555a69ba8bac1&language=en-US&page=` +
+          page
+      );
+      // eslint-disable-next-line
+      setPopular(res.results);
+      setIsLoading(false);
+    }, 2000);
+  }, [page]);
+
+  useEffect(() => {
+    setIsLoading(true);
+    setTimeout(async () => {
+      const { data: res } = await ApiAddress.get(
         `movie/top_rated?api_key=bb4cc190ec5e729a31f555a69ba8bac1&language=en-US&page=` +
           page
       );
       // eslint-disable-next-line
       setTopRated(res.results);
+
       //slice is used to limit movie items
       setIsLoading(false);
     }, 2000);
@@ -77,10 +92,12 @@ function App() {
     setTimeout(async () => {
       const { data: res } = await ApiAddress.get(
         `movie/upcoming?api_key=bb4cc190ec5e729a31f555a69ba8bac1&language=en-US&page=` +
-          page`&region=US`
+          page +
+          `&region=US`
       );
       // eslint-disable-next-line
       setUpcoming(res.results);
+
       //slice is used to limit movie items
       setIsLoading(false);
     }, 2000);
@@ -90,22 +107,16 @@ function App() {
     setIsLoading(true);
     setTimeout(async () => {
       const { data: res } = await ApiAddress.get(
-        `discover/movie?api_key=bb4cc190ec5e729a31f555a69ba8bac1&page=` + page
+        `discover/movie?api_key=bb4cc190ec5e729a31f555a69ba8bac1&with_genres=` +
+          activeGenre
       );
-      setPopular(res.results);
-      setFiltered(res.results);
+      // eslint-disable-next-line
+      setCategory(res.results);
+
+      //slice is used to limit movie items
       setIsLoading(false);
     }, 2000);
-  }, [page]);
-
-  // const fetchUpcoming = async () => {
-  //   const data = await fetch(
-  //     "https://api.themoviedb.org/3/movie/upcoming?api_key=bb4cc190ec5e729a31f555a69ba8bac1&language=en-US&page=1"
-  //   );
-  //   const movies = await data.json();
-  //   setUpcoming(movies.results);
-  //   console.log(movies.results);
-  // };
+  }, [activeGenre]);
 
   useEffect(() => {
     document.title = "Home";
@@ -137,13 +148,13 @@ function App() {
           <div className="flex">
             <Dashboard
               popular={popular}
-              setFiltered={setFiltered}
               activeGenre={activeGenre}
               setActiveGenre={setActiveGenre}
               setIsLoading={setIsLoading}
               topRated={topRated}
               upcoming={upcoming}
               darkMode={darkMode}
+              setCategory={setCategory}
             />
           </div>
           <div className="w-[80%] flex flex-col justify-start items-start h-full mt-10 bg-white absolute right-0 top-0">
@@ -165,7 +176,7 @@ function App() {
               </div>
               <div class="flex flex-wrap justify-start items-start text-center w-[1050px] mx-[7.5%]">
                 {isLoading && <CardSkeleton card={13} />}
-                {filtered.map((movie) => {
+                {category.map((movie) => {
                   return !isLoading ? (
                     <MovieCard className="flex" key={movie.id} movie={movie} />
                   ) : (

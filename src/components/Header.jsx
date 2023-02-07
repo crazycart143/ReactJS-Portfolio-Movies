@@ -4,7 +4,6 @@ import { Button, Input } from "@mui/material";
 import { ThemeProvider } from "@mui/material";
 import { createTheme } from "@mui/material/styles";
 import IconButton from "@mui/material/IconButton";
-import { useState } from "react";
 
 function Header({
   searchMovies,
