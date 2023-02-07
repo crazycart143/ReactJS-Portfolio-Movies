@@ -8,6 +8,7 @@ import Skeleton from "@mui/material/Skeleton";
 import CardSkeleton from "./components/Skeleton";
 import Featured from "./components/Featured";
 import axios from "axios";
+import { PagesTwoTone } from "@mui/icons-material";
 
 function App() {
   //show all popular movies
@@ -107,16 +108,17 @@ function App() {
     setIsLoading(true);
     setTimeout(async () => {
       const { data: res } = await ApiAddress.get(
-        `discover/movie?api_key=bb4cc190ec5e729a31f555a69ba8bac1&with_genres=` +
+        `discover/movie?api_key=bb4cc190ec5e729a31f555a69ba8bac1&page=${page}&with_genres=` +
           activeGenre
       );
+
       // eslint-disable-next-line
       setCategory(res.results);
 
       //slice is used to limit movie items
       setIsLoading(false);
     }, 2000);
-  }, [activeGenre]);
+  }, [activeGenre, page]);
 
   useEffect(() => {
     document.title = "Home";
@@ -188,7 +190,7 @@ function App() {
                 className="flex text-black w-full justify-center pt-[5%] pb-[5%]"
                 count={10}
                 shape="rounded"
-                onChange={(e, value) => setPage(value)}
+                onChange={(e) => setPage(e.target.innerText)}
               />
             </>
             {/* <div className="mt-[5%] flex w-full h-full text-center justify-center items-center relative">
