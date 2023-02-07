@@ -16,9 +16,7 @@ function App() {
   const [topRated, setTopRated] = useState([]);
   const [upcoming, setUpcoming] = useState([]);
   //to filter movies with genre
-  const [filtered, setFiltered] = useState([]);
   const [activeGenre, setActiveGenre] = useState();
-  const [genre, setGenre] = useState([]);
   const [category, setCategory] = useState([]);
   const [searchTerm, setSearchTerm] = useState("");
   const [featured, setFeatured] = useState([]);

@@ -26,9 +26,9 @@ function Header({
       className="w-[80%] fixed ml-[20%] left-0 top-0 z-50"
     >
       <div
-        className={`w-[79vw] h-[80px] flex items-center sticky left-0 top-0 ${
-          darkMode ? "bg-[#272727] text-white" : "bg-blue-500 text-black"
-        }`}
+        className={`${
+          darkMode ? "dark" : ""
+        }dark:bg-[#121212] w-[79vw] h-[80px] flex items-center sticky left-0 top-0 bg-blue-500`}
       >
         <div className="flex justify-start w-[1%]">
           <IconButton sx={{ ml: 1 }} onClick={toggleDarkMode} color="inherit">
@@ -51,7 +51,7 @@ function Header({
         </div>
         <div className="flex justify-end">
           <Button className="w-full mr-5 text-white">
-            LOGIN{" "}
+            LOGIN
             <svg
               className="ml-2 text-white fill-white"
               xmlns="http://www.w3.org/2000/svg"
