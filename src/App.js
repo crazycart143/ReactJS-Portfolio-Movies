@@ -8,7 +8,6 @@ import Skeleton from "@mui/material/Skeleton";
 import CardSkeleton from "./components/Skeleton";
 import Featured from "./components/Featured";
 import axios from "axios";
-import { PagesTwoTone } from "@mui/icons-material";
 
 function App() {
   //show all popular movies
@@ -38,7 +37,7 @@ function App() {
     setIsLoading(true);
     setTimeout(async () => {
       const { data: res } = await ApiAddress.get(
-        `search/movie?api_key=bb4cc190ec5e729a31f555a69ba8bac1&language=en-US&query=${title}&page=1&include_adult=false`
+        `search/movie?api_key=bb4cc190ec5e729a31f555a69ba8bac1&language=en-US&query=${title}&page=${page}&include_adult=false`
       );
       setCategory(res.results);
       setIsLoading(false);
@@ -144,7 +143,11 @@ function App() {
             toggleDarkMode={toggleDarkMode}
           />
         </header>
-        <main className="grid w-full h-full grid-cols-nav1">
+        <main
+          className={`${
+            darkMode ? "dark" : ""
+          } grid w-full h-full grid-cols-nav1`}
+        >
           <div className="flex">
             <Dashboard
               popular={popular}
@@ -157,7 +160,7 @@ function App() {
               setCategory={setCategory}
             />
           </div>
-          <div className="w-[80%] flex flex-col justify-start items-start h-full mt-10 bg-white absolute right-0 top-0">
+          <div className="dark:bg-[#121212] w-[80%] flex flex-col justify-start items-start h-full mt-10 bg-white absolute right-0 top-0">
             <>
               <div className="h-[450px] mb-[5%] mt-[5%] relative mx-5">
                 {isLoading && (
@@ -174,7 +177,7 @@ function App() {
                   <div></div>
                 )}
               </div>
-              <div class="flex flex-wrap justify-start items-start text-center w-[1050px] mx-[7.5%]">
+              <div class="dark:bg-[#121212] flex flex-wrap justify-around items-start text-center w-full px-[7%]">
                 {isLoading && <CardSkeleton card={13} />}
                 {category.map((movie) => {
                   return !isLoading ? (
@@ -185,7 +188,7 @@ function App() {
                 })}
               </div>
               <Pagination
-                className="flex text-black w-full justify-center pt-[5%] pb-[5%]"
+                className="dark:bg-[#121212] flex text-black w-full justify-center pt-[5%] pb-[5%]"
                 count={10}
                 shape="rounded"
                 onChange={(e) => setPage(e.target.innerText)}

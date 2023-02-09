@@ -8,7 +8,7 @@ function MovieCard({ movie }) {
   return (
     <div
       className="group w-[200px]  
-duration-300 hover:scale-105 h-[50px] mb-[350px] mr-[55px] relative"
+duration-300 hover:scale-105 h-[50px] mb-[350px] relative"
     >
       <CardMedia
         className="duration-100 rounded-[30px] z-10"
@@ -62,7 +62,7 @@ duration-300 hover:scale-105 h-[50px] mb-[350px] mr-[55px] relative"
           </div>
         </CardContent>
       </CardMedia>
-      <Typography className="text-[#212121] flex text-center items-start justify-center mt-3 h-[50px] w-full overflow-hidden whitespace-pre-line overflow-ellipsis">
+      <Typography className="dark:text-white text-[#212121] flex text-center items-start justify-center mt-3 h-[50px] w-full overflow-hidden whitespace-pre-line overflow-ellipsis">
         {movie.title}
       </Typography>
     </div>

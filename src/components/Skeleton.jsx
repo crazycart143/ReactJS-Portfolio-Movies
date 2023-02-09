@@ -7,7 +7,7 @@ function CardSkeleton({ card }) {
     .map((_, i) => (
       <Skeleton
         card={i}
-        className="mb-[80px] mr-[55px] rounded-[30px]"
+        className="mb-[80px] rounded-[30px]"
         animation="wave"
         variant="rectangular"
         width={200}

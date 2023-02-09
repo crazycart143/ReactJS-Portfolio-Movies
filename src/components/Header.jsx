@@ -23,13 +23,11 @@ function Header({
     <header
       darkMode={darkMode}
       toggleDarkMode={toggleDarkMode}
-      className="w-[80%] fixed ml-[20%] left-0 top-0 z-50"
+      className={`${
+        darkMode ? "dark" : ""
+      } w-[80%] fixed ml-[20%] left-0 top-0 z-50`}
     >
-      <div
-        className={`${
-          darkMode ? "dark" : ""
-        }dark:bg-[#121212] w-[79vw] h-[80px] flex items-center sticky left-0 top-0 bg-blue-500`}
-      >
+      <div className="dark:bg-[#272727] w-[79vw] h-[80px] flex items-center sticky left-0 top-0 bg-blue-500">
         <div className="flex justify-start w-[1%]">
           <IconButton sx={{ ml: 1 }} onClick={toggleDarkMode} color="inherit">
             {darkMode ? <h1>dark</h1> : <h1>light</h1>}
