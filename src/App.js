@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import Dashboard from "./components/Dashboard";
 import { useEffect, useState } from "react";
 import Header from "./components/Header";
