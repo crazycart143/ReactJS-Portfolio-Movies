@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import Dashboard from "./components/Dashboard";
 import { useEffect, useState } from "react";
 import Header from "./components/Header";
@@ -19,7 +20,6 @@ function App() {
   const [category, setCategory] = useState([]);
   const [searchTerm, setSearchTerm] = useState("");
   const [featured, setFeatured] = useState([]);
-  // const [upcoming, setUpcoming] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
   const [page, setPage] = useState(1);
 

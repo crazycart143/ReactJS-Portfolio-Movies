@@ -51,7 +51,7 @@ function Dashboard({
                   setIsLoading(false);
                 }, 2000);
               }}
-              className="dark:bg-[#121212] dark:text-white dark:hover:bg-[#252525] flex py-4 hover:bg-gray-100 text-[17px] capitalize justify-start w-full gap-4 px-5 text-black bg-white"
+              className="dark:bg-[#121212] dark:text-white dark:hover:bg-[#252525] transition-none flex py-4 hover:bg-gray-100 text-[17px] capitalize justify-start w-full gap-4 px-5 text-black bg-white"
             >
               <svg
                 className="mr-[24px]"
@@ -77,7 +77,7 @@ function Dashboard({
                   setIsLoading(false);
                 }, 2000);
               }}
-              className="dark:bg-[#121212] dark:text-white dark:hover:bg-[#252525] flex py-4 hover:bg-gray-100 text-[17px] capitalize justify-start w-full gap-4 px-5 bg-white text-black"
+              className="dark:bg-[#121212] dark:text-white dark:hover:bg-[#252525] transition-none flex py-4 hover:bg-gray-100 text-[17px] capitalize justify-start w-full gap-4 px-5 bg-white text-black"
             >
               <svg
                 className="-ml-2 mr-[16px] "
@@ -104,7 +104,7 @@ function Dashboard({
                   setIsLoading(false);
                 }, 2000);
               }}
-              className="dark:bg-[#121212] dark:text-white dark:hover:bg-[#252525] flex py-4 hover:bg-gray-100 text-[17px] capitalize justify-start w-full gap-4 px-5 text-black bg-white"
+              className="dark:bg-[#121212] dark:text-white dark:hover:bg-[#252525] transition-none flex py-4 hover:bg-gray-100 text-[17px] capitalize justify-start w-full gap-4 px-5 text-black bg-white"
             >
               <svg
                 className="mr-[19px]"
@@ -131,7 +131,7 @@ function Dashboard({
           <div>
             <Button
               onClick={() => setActiveGenre(28)}
-              className="dark:bg-[#121212] dark:text-white dark:hover:bg-[#252525] flex py-4 hover:bg-gray-100 text-[17px] capitalize justify-start w-full gap-4 px-5 text-black bg-white"
+              className="dark:bg-[#121212] dark:text-white dark:hover:bg-[#252525] transition-none flex py-4 hover:bg-gray-100 text-[17px] capitalize justify-start w-full gap-4 px-5 text-black bg-white"
             >
               <svg
                 className="mr-[18px]"
@@ -156,7 +156,7 @@ function Dashboard({
           <div>
             <Button
               onClick={() => setActiveGenre(12)}
-              className="dark:bg-[#121212] dark:text-white dark:hover:bg-[#252525] flex py-4 hover:bg-gray-100 text-[17px] capitalize justify-start w-full gap-4 px-5 text-black bg-white"
+              className="dark:bg-[#121212] dark:text-white dark:hover:bg-[#252525] transition-none flex py-4 hover:bg-gray-100 text-[17px] capitalize justify-start w-full gap-4 px-5 text-black bg-white"
             >
               <svg
                 className="mr-[18px]"
@@ -189,7 +189,7 @@ function Dashboard({
           <div>
             <Button
               onClick={() => setActiveGenre(16)}
-              className="dark:bg-[#121212] dark:text-white dark:hover:bg-[#252525] flex py-4 hover:bg-gray-100 text-[17px] capitalize justify-start w-full gap-4 px-5 text-black bg-white"
+              className="dark:bg-[#121212] dark:text-white dark:hover:bg-[#252525] transition-none flex py-4 hover:bg-gray-100 text-[17px] capitalize justify-start w-full gap-4 px-5 text-black bg-white"
             >
               <svg
                 className="mr-[18px]"
@@ -210,7 +210,7 @@ function Dashboard({
           <div>
             <Button
               onClick={() => setActiveGenre(35)}
-              className="dark:bg-[#121212] dark:text-white dark:hover:bg-[#252525] flex py-4 hover:bg-gray-100 text-[17px] capitalize justify-start w-full gap-4 px-5 text-black bg-white"
+              className="dark:bg-[#121212] dark:text-white dark:hover:bg-[#252525] transition-none flex py-4 hover:bg-gray-100 text-[17px] capitalize justify-start w-full gap-4 px-5 text-black bg-white"
             >
               <svg
                 className="mr-[17px]"
@@ -236,7 +236,7 @@ function Dashboard({
           <div>
             <Button
               onClick={() => setActiveGenre(80)}
-              className="dark:bg-[#121212] dark:text-white dark:hover:bg-[#252525] flex py-4 hover:bg-gray-100 text-[17px] capitalize justify-start w-full gap-4 px-5 text-black bg-white"
+              className="dark:bg-[#121212] dark:text-white dark:hover:bg-[#252525] transition-none flex py-4 hover:bg-gray-100 text-[17px] capitalize justify-start w-full gap-4 px-5 text-black bg-white"
             >
               <svg
                 className="mr-[12px]"
@@ -262,7 +262,7 @@ function Dashboard({
           <div>
             <Button
               onClick={() => setActiveGenre(99)}
-              className="dark:bg-[#121212] dark:text-white dark:hover:bg-[#252525] flex py-4 hover:bg-gray-100 text-[17px] capitalize justify-start w-full gap-4 px-5 text-black bg-white "
+              className="dark:bg-[#121212] dark:text-white dark:hover:bg-[#252525] transition-none flex py-4 hover:bg-gray-100 text-[17px] capitalize justify-start w-full gap-4 px-5 text-black bg-white "
             >
               <svg
                 className="mr-[18px]"
@@ -284,7 +284,7 @@ function Dashboard({
           <div>
             <Button
               onClick={() => setActiveGenre(18)}
-              className="dark:bg-[#121212] dark:text-white dark:hover:bg-[#252525] flex py-4 hover:bg-gray-100 text-[17px] capitalize justify-start w-full gap-4 px-5 text-black bg-white"
+              className="dark:bg-[#121212] dark:text-white dark:hover:bg-[#252525] transition-none flex py-4 hover:bg-gray-100 text-[17px] capitalize justify-start w-full gap-4 px-5 text-black bg-white"
             >
               <svg
                 className="mr-[18px]"
@@ -313,7 +313,7 @@ function Dashboard({
           <div>
             <Button
               onClick={() => setActiveGenre(10751)}
-              className="dark:bg-[#121212] dark:text-white dark:hover:bg-[#252525] flex py-4 hover:bg-gray-100 text-[17px] capitalize justify-start w-full gap-4 px-5 text-black bg-white"
+              className="dark:bg-[#121212] dark:text-white dark:hover:bg-[#252525] transition-none flex py-4 hover:bg-gray-100 text-[17px] capitalize justify-start w-full gap-4 px-5 text-black bg-white"
             >
               <svg
                 className="-ml-1 mr-[16px]"
@@ -334,7 +334,7 @@ function Dashboard({
           <div>
             <Button
               onClick={() => setActiveGenre(14)}
-              className="dark:bg-[#121212] dark:text-white dark:hover:bg-[#252525] flex py-4 hover:bg-gray-100 text-[17px] capitalize justify-start w-full gap-4 px-5 text-black bg-white"
+              className="dark:bg-[#121212] dark:text-white dark:hover:bg-[#252525] transition-none flex py-4 hover:bg-gray-100 text-[17px] capitalize justify-start w-full gap-4 px-5 text-black bg-white"
             >
               <svg
                 className="-ml-1 mr-[16px]"
@@ -355,7 +355,7 @@ function Dashboard({
           <div>
             <Button
               onClick={() => setActiveGenre(36)}
-              className="dark:bg-[#121212] dark:text-white dark:hover:bg-[#252525] flex py-4 hover:bg-gray-100 text-[17px] capitalize justify-start w-full gap-4 px-5 text-black bg-white"
+              className="dark:bg-[#121212] dark:text-white dark:hover:bg-[#252525] transition-none flex py-4 hover:bg-gray-100 text-[17px] capitalize justify-start w-full gap-4 px-5 text-black bg-white"
             >
               <svg
                 className="mr-[16px]"
@@ -380,7 +380,7 @@ function Dashboard({
           <div>
             <Button
               onClick={() => setActiveGenre(27)}
-              className="dark:bg-[#121212] dark:text-white dark:hover:bg-[#252525] flex py-4 hover:bg-gray-100 text-[17px] capitalize justify-start w-full gap-4 px-5 text-black bg-white"
+              className="dark:bg-[#121212] dark:text-white dark:hover:bg-[#252525] transition-none flex py-4 hover:bg-gray-100 text-[17px] capitalize justify-start w-full gap-4 px-5 text-black bg-white"
             >
               <svg
                 className="mr-[16px]"
@@ -406,7 +406,7 @@ function Dashboard({
           <div>
             <Button
               onClick={() => setActiveGenre(10402)}
-              className="dark:bg-[#121212] dark:text-white dark:hover:bg-[#252525] flex py-4 hover:bg-gray-100 text-[17px] capitalize justify-start w-full gap-4 px-5 text-black bg-white"
+              className="dark:bg-[#121212] dark:text-white dark:hover:bg-[#252525] transition-none flex py-4 hover:bg-gray-100 text-[17px] capitalize justify-start w-full gap-4 px-5 text-black bg-white"
             >
               <svg
                 className="mr-[16px]"
@@ -431,7 +431,7 @@ function Dashboard({
           <div>
             <Button
               onClick={() => setActiveGenre(9648)}
-              className="dark:bg-[#121212] dark:text-white dark:hover:bg-[#252525] flex py-4 hover:bg-gray-100 text-[17px] capitalize justify-start w-full gap-4 px-5 text-black bg-white"
+              className="dark:bg-[#121212] dark:text-white dark:hover:bg-[#252525] transition-none flex py-4 hover:bg-gray-100 text-[17px] capitalize justify-start w-full gap-4 px-5 text-black bg-white"
             >
               <svg
                 className="-ml-1 mr-[10px]"
@@ -452,7 +452,7 @@ function Dashboard({
           <div>
             <Button
               onClick={() => setActiveGenre(10749)}
-              className="dark:bg-[#121212] dark:text-white dark:hover:bg-[#252525] flex py-4 hover:bg-gray-100 text-[17px] capitalize justify-start w-full gap-4 px-5 text-black bg-white"
+              className="dark:bg-[#121212] dark:text-white dark:hover:bg-[#252525] transition-none flex py-4 hover:bg-gray-100 text-[17px] capitalize justify-start w-full gap-4 px-5 text-black bg-white"
             >
               <svg
                 className="mr-[11px]"
@@ -474,7 +474,7 @@ function Dashboard({
           <div>
             <Button
               onClick={() => setActiveGenre(878)}
-              className="dark:bg-[#121212] dark:text-white dark:hover:bg-[#252525] flex py-4 hover:bg-gray-100 text-[17px] capitalize justify-start w-full gap-4 px-5 text-black bg-white"
+              className="dark:bg-[#121212] dark:text-white dark:hover:bg-[#252525] transition-none flex py-4 hover:bg-gray-100 text-[17px] capitalize justify-start w-full gap-4 px-5 text-black bg-white"
             >
               <svg
                 className="mr-[15px]"
@@ -496,7 +496,7 @@ function Dashboard({
           <div>
             <Button
               onClick={() => setActiveGenre(10770)}
-              className="dark:bg-[#121212] dark:text-white dark:hover:bg-[#252525] flex py-4 hover:bg-gray-100 text-[17px] capitalize justify-start w-full gap-4 px-5 text-black bg-white"
+              className="dark:bg-[#121212] dark:text-white dark:hover:bg-[#252525] transition-none flex py-4 hover:bg-gray-100 text-[17px] capitalize justify-start w-full gap-4 px-5 text-black bg-white"
             >
               <svg
                 className="mr-[15px]"
@@ -517,7 +517,7 @@ function Dashboard({
           <div>
             <Button
               onClick={() => setActiveGenre(53)}
-              className="dark:bg-[#121212] dark:text-white dark:hover:bg-[#252525] flex py-4 hover:bg-gray-100 text-[17px] capitalize justify-start w-full gap-4 px-5 text-black bg-white"
+              className="dark:bg-[#121212] dark:text-white dark:hover:bg-[#252525] transition-none flex py-4 hover:bg-gray-100 text-[17px] capitalize justify-start w-full gap-4 px-5 text-black bg-white"
             >
               <svg
                 className="-ml-1 mr-[15px]"
@@ -542,7 +542,7 @@ function Dashboard({
           <div>
             <Button
               onClick={() => setActiveGenre(10752)}
-              className="dark:bg-[#121212] dark:text-white dark:hover:bg-[#252525] flex py-4 hover:bg-gray-100 text-[17px] capitalize justify-start w-full gap-4 px-5 text-black bg-white"
+              className="dark:bg-[#121212] dark:text-white dark:hover:bg-[#252525] transition-none flex py-4 hover:bg-gray-100 text-[17px] capitalize justify-start w-full gap-4 px-5 text-black bg-white"
             >
               <svg
                 className=" mr-[17px]"
@@ -563,7 +563,7 @@ function Dashboard({
           <div>
             <Button
               onClick={() => setActiveGenre(37)}
-              className="dark:bg-[#121212] dark:text-white dark:hover:bg-[#252525] flex py-4 hover:bg-gray-100 text-[17px] capitalize justify-start w-full gap-4 px-5 text-black bg-white"
+              className="dark:bg-[#121212] dark:text-white dark:hover:bg-[#252525] transition-none flex py-4 hover:bg-gray-100 text-[17px] capitalize justify-start w-full gap-4 px-5 text-black bg-white"
             >
               <svg
                 className="-ml-1 mr-[11px]"
