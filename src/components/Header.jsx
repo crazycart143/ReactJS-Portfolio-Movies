@@ -6,16 +6,23 @@ import { createTheme } from "@mui/material/styles";
 import IconButton from "@mui/material/IconButton";
 
 function Header({
-  searchMovies,
   searchTerm,
   setSearchTerm,
+  searchMovies,
   darkMode,
   toggleDarkMode,
+  setSearchStatus,
 }) {
   //to search using enter key
+
   const handleKeyDown = (event) => {
     if (event.key === "Enter") {
-      searchMovies(searchTerm);
+      if (event.target.value === "") {
+        setSearchStatus(false);
+      } else {
+        searchMovies(searchTerm);
+        setSearchStatus(true);
+      }
     }
   };
 

@@ -34,7 +34,7 @@ function Dashboard({
         } w-[20%] h-[100%] overflow-y-scroll fixed top-0 scrollbar-thin scrollbar-thumb-gray-400 scrollbar-track-gray-200`}
       >
         <div className="w-full text-center border-b-2 border-gray-300">
-          <h1 className="dark:bg-[#121212] p-7 font-bold text-center text-[2.5vw] pl-3 text-blue-500 dark:text-red-500">
+          <h1 className="dark:bg-[#121212] p-7 font-bold text-center text-[2.5vw] pl-3 text-blue-500 dark:text-[#DB0000]">
             FILMPIRE
           </h1>
         </div>

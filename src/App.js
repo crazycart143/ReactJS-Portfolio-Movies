@@ -9,6 +9,8 @@ import Skeleton from "@mui/material/Skeleton";
 import CardSkeleton from "./components/Skeleton";
 import Featured from "./components/Featured";
 import axios from "axios";
+import CardMedia from "@mui/material/CardMedia";
+import error from "../src/assets/videos/error.gif";
 
 function App() {
   //show all popular movies
@@ -19,6 +21,7 @@ function App() {
   const [activeGenre, setActiveGenre] = useState();
   const [category, setCategory] = useState([]);
   const [searchTerm, setSearchTerm] = useState("");
+  const [searchStatus, setSearchStatus] = useState(false);
   const [featured, setFeatured] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
   const [page, setPage] = useState(1);
@@ -33,15 +36,17 @@ function App() {
     baseURL: "https://api.themoviedb.org/3/",
   });
 
-  const searchMovies = async (title) => {
-    setIsLoading(true);
-    setTimeout(async () => {
-      const { data: res } = await ApiAddress.get(
-        `search/movie?api_key=bb4cc190ec5e729a31f555a69ba8bac1&language=en-US&query=${title}&page=${page}&include_adult=false`
-      );
-      setCategory(res.results);
-      setIsLoading(false);
-    }, 2000);
+  const searchMovies = (title) => {
+    if (searchStatus === true) {
+      setIsLoading(true);
+      setTimeout(async () => {
+        const { data: res } = await ApiAddress.get(
+          `search/movie?api_key=bb4cc190ec5e729a31f555a69ba8bac1&language=en-US&query=${title}&page=${page}&include_adult=false`
+        );
+        setCategory(res.results);
+        setIsLoading(false);
+      }, 2000);
+    }
   };
 
   useEffect(() => {
@@ -136,9 +141,10 @@ function App() {
       <body className="overflow-x-hidden scrollbar-none" id="root">
         <header>
           <Header
-            searchMovies={searchMovies}
             searchTerm={searchTerm}
             setSearchTerm={setSearchTerm}
+            searchMovies={searchMovies}
+            setSearchStatus={setSearchStatus}
             darkMode={darkMode}
             toggleDarkMode={toggleDarkMode}
           />
@@ -171,8 +177,26 @@ function App() {
                     height={450}
                   />
                 )}
-                {!isLoading && featured.length > 0 ? (
-                  <Featured className="flex" featured={featured} />
+                {!isLoading ? (
+                  category.length > 0 ? (
+                    <Featured className="flex" featured={featured} />
+                  ) : (
+                    <div
+                      className={`${
+                        darkMode ? "dark" : ""
+                      } mt-[5%] flex w-full h-full text-center justify-center items-center relative`}
+                    >
+                      <CardMedia
+                        className="absolute left-10"
+                        sx={{ height: 400, width: 400 }}
+                        image={error}
+                        alt={"movie not found"}
+                      />
+                      <h2 className="dark:text-[#DB0000] font-bold text-blue-500 text-[100px] w-[50%] ml-[40%]">
+                        NO MOVIES FOUND :(
+                      </h2>
+                    </div>
+                  )
                 ) : (
                   <div></div>
                 )}
@@ -194,17 +218,6 @@ function App() {
                 onChange={(e) => setPage(e.target.innerText)}
               />
             </>
-            {/* <div className="mt-[5%] flex w-full h-full text-center justify-center items-center relative">
-              <CardMedia
-                className="absolute left-10"
-                sx={{ height: 400, width: 400 }}
-                image={error}
-                alt={"movie not found"}
-              />
-              <h2 className="font-bold text-blue-500 text-[100px] w-[50%] ml-[20%]">
-                NO MOVIES FOUND
-              </h2>
-            </div> */}
           </div>
         </main>
       </body>
